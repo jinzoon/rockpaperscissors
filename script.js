@@ -15,3 +15,34 @@
 
 //the game will run four more times
 // and then the final winner will be announced
+
+
+
+
+
+// Returns the computer choice a string
+function getComputerChoice() {
+    let randomNumber = getRandomInt(1, 4);
+    if (randomNumber == 1) {
+        return "rock";
+    }
+    else if (randomNumber == 2)
+    {
+        return "paper";
+    }    
+    else if (randomNumber == 3) {
+        return "scissors"
+    }
+    else {
+        return null;
+    }
+}
+
+
+//Creates a random number between to integers
+//The lower bound is inclusive, the upper bound is exclusive
+function getRandomInt(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
+}
