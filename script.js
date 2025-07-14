@@ -16,9 +16,12 @@
 //the game will run four more times
 // and then the final winner will be announced
 
+let playerChoice = getPlayerChoice().toLowerCase();
+console.log(playerChoice);
 
-
-
+function getPlayerChoice(){
+    return prompt("Rock, paper, scissors?")
+}
 
 // Returns the computer choice a string
 function getComputerChoice() {
@@ -31,7 +34,7 @@ function getComputerChoice() {
         return "paper";
     }    
     else if (randomNumber == 3) {
-        return "scissors"
+        return "scissors";
     }
     else {
         return null;
