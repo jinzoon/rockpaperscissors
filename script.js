@@ -16,7 +16,12 @@
 //the game will run four more times
 // and then the final winner will be announced
 
+let humanScore = 0;
+let computerScore = 0;
+
+
 let playerChoice = getPlayerChoice().toLowerCase();
+
 console.log(playerChoice);
 
 function getPlayerChoice(){
