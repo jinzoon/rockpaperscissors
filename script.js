@@ -21,9 +21,42 @@ let computerScore = 0;
 
 
 let playerChoice = getPlayerChoice().toLowerCase();
+let computerChoice = getComputerChoice();
 
-console.log(playerChoice);
+playRound(playerChoice,computerChoice);
+console.log(humanScore + " " + computerScore )
 
+
+function playRound (playerChoice,computerChoice )
+{
+    if (
+        (playerChoice == "rock" && computerChoice == "scissors") ||
+        (playerChoice == "paper" && computerChoice == "rock") ||
+        (playerChoice == "scissors" && computerChoice == "paper")
+
+    ) 
+    {
+        console.log("You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!")
+        humanScore++;
+    }
+    else if  (
+        (computerChoice == "rock" &&  playerChoice == "scissors") ||
+        (computerChoice == "paper" && playerChoice == "rock") ||
+        (computerChoice == "scissors" && playerChoice == "paper")
+        
+    ) 
+    {
+        console.log("I win! " + computerChoice.charAt(0).toUpperCase() + computerChoice.substring(1)  + " beats " + playerChoice + "!")
+        computerScore++;
+    }
+    else {
+        console.log("Tie! You both chose " + playerChoice )
+    }
+}
+
+
+
+// Gets the player's choice
 function getPlayerChoice(){
     return prompt("Rock, paper, scissors?")
 }
