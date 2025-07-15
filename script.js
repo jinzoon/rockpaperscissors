@@ -20,13 +20,21 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-let playerChoice = getPlayerChoice().toLowerCase();
-let computerChoice = getComputerChoice();
+//let playerChoice = getPlayerChoice().toLowerCase();
+//let computerChoice = getComputerChoice();
 
-playRound(playerChoice,computerChoice);
-console.log(humanScore + " " + computerScore )
+playGame();
+if (humanScore > computerScore){
+    console.log("You win!")
+}
+else if (computerScore > humanScore){
+    console.log("I win!")
+}
+else {
+    console.log("Tie! We're both winners!")
+}
 
-
+//plays one round of the game
 function playRound (playerChoice,computerChoice )
 {
     if (
@@ -54,6 +62,13 @@ function playRound (playerChoice,computerChoice )
     }
 }
 
+
+function playGame() {
+    for (let index = 0; index < 5; index++) {
+        playRound(getPlayerChoice().toLowerCase(),getComputerChoice());
+        console.log("Your score is "+ humanScore + " My score is " + computerScore )
+    }
+}
 
 
 // Gets the player's choice
