@@ -58,7 +58,7 @@ function playRound (playerChoice,computerChoice )
         computerScore++;
     }
     else {
-        console.log("Tie! You both chose " + playerChoice )
+        console.log("Tie! We both chose " + playerChoice )
     }
 }
 
