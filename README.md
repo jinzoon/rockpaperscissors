@@ -51,22 +51,6 @@ The original console-based version has been refactored to feature a visual UI. P
 
 ---
 
-## Project Structure
-
-project-folder/
-│
-├── index.html # Main HTML file
-├── script.js # Game logic and DOM interaction
-├── styles.css # Styling and hover effects
-├── rock.svg
-├── rock_glow.svg
-├── paper.svg
-├── paper_glow.svg
-├── scissors.svg
-└── scissors_glow.svg
-
-
----
 
 ## License
 
