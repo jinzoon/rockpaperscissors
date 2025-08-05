@@ -70,7 +70,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
     ) 
     {
         finalText.remove();
-        resultString = "<h2>Round " + (roundNumber+1) + ": I win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h2>";
+        resultString = "<h2>Round " + (roundNumber+1) + ": I win! " + computerChoice.charAt(0).toUpperCase() + computerChoice.substring(1) + " beats " + playerChoice + "!</h2>";
         scoreText.innerHTML = resultString;
         computerScore++;
         currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
