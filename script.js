@@ -1,27 +1,8 @@
-// this  program is going to 
-// play rock paper scissors
-
-//first it will get the computer's
-// choice
-// it will use a random number to do this
-// 0 rock, 1 paper, 2, scissors
-
-// it will then take the players choice
-
-//these two will be checked against each other
-
-// the winner score will be increased and it will output 
-// the winner  with the current score 
-
-//the game will run four more times
-// and then the final winner will be announced
-
 let humanScore = 0;
 let computerScore = 0;
-
-
 let playerChoice = null;
-//let computerChoice = getComputerChoice();
+let roundNumber = 0;
+
 const rockButton = document.querySelector(".selectionContainer__rockSelection");
 const paperButton = document.querySelector(".selectionContainer__paperSelection");
 const scissorButton = document.querySelector(".selectionContainer__scissorsSelection");
@@ -30,7 +11,7 @@ const currentScoreText = document.createElement("p");
 const parentDIV = document.querySelector(".main")
 const finalText = document.createElement("div");
 
-let roundNumber = 0;
+
 
 rockButton.addEventListener("click", () => {
  //alert("Rock World");
@@ -55,13 +36,18 @@ scissorButton.addEventListener("click", () => {
 
 
 
-//playGame();
+
 
 
 //plays one round of the game
+// this is done by comparing the player choice to the computer choice
+// if the final score text is viewable, it is removed on playing the game
+// 
 function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 {
     let resultString = null;
+
+
     if (
         (playerChoice == "rock" && computerChoice == "scissors") ||
         (playerChoice == "paper" && computerChoice == "rock") ||
@@ -69,7 +55,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 
     ) 
     {
-        finalText.remove();
+        finalText.remove()
         resultString = "<h2>Round " + (roundNumber+1) + ": You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h2>";
         scoreText.innerHTML = resultString;
         humanScore++;
@@ -99,7 +85,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
     }
 
     roundNumber++;
-
+    // if this is the final round, the final scores and ultimate winner is displayed
     if (roundNumber == 5 && humanScore > computerScore){
         finalText.innerHTML = "<h1>You win!</h1>";
         parentDIV.insertBefore(finalText,scoreText)
@@ -131,20 +117,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 
 
 
-//function playGame() {
-//    for (let index = 0; index < 5; index++) {
-//       playRound(getPlayerChoice().toLowerCase(),getComputerChoice());
-//        console.log("Your score is "+ humanScore + " My score is " + computerScore )
-//    }
-//}
 
-
-// Gets the player's choice
-//function getPlayerChoice(){
-//    return prompt("Rock, paper, scissors?")
-//}
-
-// Returns the computer choice a string
 function getComputerChoice() {
     let randomNumber = getRandomInt(1, 4);
     if (randomNumber == 1) {
