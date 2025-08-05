@@ -20,10 +20,33 @@ let humanScore = 0;
 let computerScore = 0;
 
 
-//let playerChoice = getPlayerChoice().toLowerCase();
+let playerChoice = null;
 //let computerChoice = getComputerChoice();
+const rockButton = document.querySelector(".selectionContainer__rockSelection");
+const paperButton = document.querySelector(".selectionContainer__paperSelection");
+const scissorButton = document.querySelector(".selectionContainer__scissorsSelection");
 
-playGame();
+rockButton.addEventListener("click", () => {
+ //alert("Rock World");
+ playerChoice = "rock";
+ playRound(playerChoice,getComputerChoice())
+});
+
+
+paperButton.addEventListener("click", () => {
+ //alert("Paper World");
+ playerChoice = "paper";
+ playRound(playerChoice,getComputerChoice())
+});
+
+scissorButton.addEventListener("click", () => {
+ //alert("Scissor World");
+ playerChoice = "scissors";
+ playRound(playerChoice,getComputerChoice())
+});
+
+
+//playGame();
 if (humanScore > computerScore){
     console.log("You win!")
 }
@@ -63,18 +86,18 @@ function playRound (playerChoice,computerChoice )
 }
 
 
-function playGame() {
-    for (let index = 0; index < 5; index++) {
-        playRound(getPlayerChoice().toLowerCase(),getComputerChoice());
-        console.log("Your score is "+ humanScore + " My score is " + computerScore )
-    }
-}
+//function playGame() {
+//    for (let index = 0; index < 5; index++) {
+//       playRound(getPlayerChoice().toLowerCase(),getComputerChoice());
+//        console.log("Your score is "+ humanScore + " My score is " + computerScore )
+//    }
+//}
 
 
 // Gets the player's choice
-function getPlayerChoice(){
-    return prompt("Rock, paper, scissors?")
-}
+//function getPlayerChoice(){
+//    return prompt("Rock, paper, scissors?")
+//}
 
 // Returns the computer choice a string
 function getComputerChoice() {
