@@ -27,6 +27,8 @@ const paperButton = document.querySelector(".selectionContainer__paperSelection"
 const scissorButton = document.querySelector(".selectionContainer__scissorsSelection");
 const scoreText = document.querySelector(".scoreText");
 const currentScoreText = document.createElement("p");
+const parentDIV = document.querySelector(".main")
+const finalText = document.createElement("div");
 
 let roundNumber = 0;
 
@@ -54,15 +56,7 @@ scissorButton.addEventListener("click", () => {
 
 
 //playGame();
-if (humanScore > computerScore){
-    console.log("You win!")
-}
-else if (computerScore > humanScore){
-    console.log("I win!")
-}
-else {
-    console.log("Tie! We're both winners!")
-}
+
 
 //plays one round of the game
 function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
@@ -75,7 +69,8 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 
     ) 
     {
-        resultString = "<h1>Round " + (roundNumber+1) + ": You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h1>";
+        finalText.remove();
+        resultString = "<h2>Round " + (roundNumber+1) + ": You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h2>";
         scoreText.innerHTML = resultString;
         humanScore++;
         currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
@@ -88,15 +83,16 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
         
     ) 
     {
-        resultString = "<h1>Round " + (roundNumber+1) + ": I win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h1>";
+        finalText.remove();
+        resultString = "<h2>Round " + (roundNumber+1) + ": I win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h2>";
         scoreText.innerHTML = resultString;
         computerScore++;
         currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
         scoreText.appendChild(currentScoreText);
     }
     else {
-        
-        resultString = "<h1>Round " + (roundNumber+1) +": Tie! We both chose " + playerChoice + "</h1>";
+        finalText.remove();
+        resultString = "<h2>Round " + (roundNumber+1) +": Tie! We both chose " + playerChoice + "</h2>";
         scoreText.innerHTML = resultString;
         currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
         scoreText.appendChild(currentScoreText);
@@ -104,6 +100,31 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 
     roundNumber++;
 
+    if (roundNumber == 5 && humanScore > computerScore){
+        finalText.innerHTML = "<h1>You win!</h1>";
+        parentDIV.insertBefore(finalText,scoreText)
+        parentDIV.style.textAlign = "center"
+        roundNumber = 0;
+        humanScore = 0;
+        computerScore =0;
+    }
+    else if (roundNumber == 5 && computerScore > humanScore){
+        finalText.innerHTML = "<h1>I win!</h1>";
+        parentDIV.insertBefore(finalText,scoreText)
+        parentDIV.style.textAlign = "center"
+        roundNumber = 0;
+        humanScore = 0;
+        computerScore =0;
+    }
+    else if (roundNumber == 5){
+        finalText.innerHTML = "<h1>Tie! We're both winners!</h1>";
+        parentDIV.insertBefore(finalText,scoreText)
+        parentDIV.style.textAlign = "center"
+
+        roundNumber = 0;
+        humanScore = 0;
+        computerScore =0;
+}     
     
 }
 
