@@ -1,64 +1,75 @@
-# Rock Paper Scissors (Console Game)
 
-This is a simple **Rock Paper Scissors** game built with JavaScript as part of [The Odin Project](https://www.theodinproject.com/) curriculum. The game is played entirely in the browser console, where the user competes against the computer over five rounds.
+# Rock Paper Scissors (DOM Version)
 
-## How to Play
+This is a web-based Rock Paper Scissors game built with HTML, CSS, and JavaScript as part of [The Odin Project](https://www.theodinproject.com/) curriculum.
 
-1. Clone or download the project and open the `.html` or `.js` file in your browser.
-2. Open the **DevTools Console** (`F12` or `Ctrl+Shift+I` → Console tab).
-3. When prompted, enter your move: `rock`, `paper`, or `scissors`.
-4. The computer will randomly select a move.
-5. The result of each round and current scores will be shown in the console.
-6. After five rounds, the final winner is announced.
+The original console-based version has been refactored to feature a visual UI. Players now click on buttons with images to make their choices, and the results are displayed directly on the web page using DOM manipulation — no need to open the console!
 
-## Game Logic
-
-- Rock beats Scissors  
-- Scissors beats Paper  
-- Paper beats Rock  
-- Ties are possible  
-- First to win the majority of 5 rounds is the winner
+---
 
 ## Features
 
-- Prompt-based user input
-- Randomized computer choice
-- Score tracking
-- Console-based interface
-- Final results after 5 rounds
+- Interactive UI with clickable rock/paper/scissors buttons
+- Hover effects using CSS for visual feedback
+- Computer randomly selects its move
+- Score updates displayed after each round
+- Final winner declared after 5 rounds
+- Fully handled through DOM manipulation — no console required
 
-## Example Output
+---
 
-```text
-Rock, paper, scissors?
-> rock
-You win! Rock beats scissors!
-Your score is 1 My score is 0
 
-Rock, paper, scissors?
-> paper
-I win! Scissors beats paper!
-Your score is 1 My score is 1
+## How to Run
 
-...
+- Visit: https://jinzoon.github.io/rockpaperscissors
 
-You win!
-```
+---
+
+## How to Play
+
+- Click on the **Rock**, **Paper**, or **Scissors** button.
+- The computer will randomly select its move.
+- The result of the round will be shown on the screen.
+- After 5 rounds, the final winner is announced, and the score resets for a new game.
+
+---
+
+## What I Practiced
+
+- DOM manipulation with `querySelector`, `createElement`, `innerHTML`, and event listeners
+- Conditional logic and score tracking
+- Structuring and styling interactive web pages with CSS
+- Using background images and hover states for visual design
+
+---
 
 ## Technologies Used
 
+- HTML5
+- CSS3
 - JavaScript (Vanilla)
-- `prompt()` for input
-- `console.log()` for output
-- `Math.random()` for random number generation
+
+---
+
+## Project Structure
+
+project-folder/
+│
+├── index.html # Main HTML file
+├── script.js # Game logic and DOM interaction
+├── styles.css # Styling and hover effects
+├── rock.svg
+├── rock_glow.svg
+├── paper.svg
+├── paper_glow.svg
+├── scissors.svg
+└── scissors_glow.svg
 
 
-## Notes
-
-- This game is designed to run in the browser **console**.
-- Inputs are converted to lowercase, so case doesn’t matter.
-- It does not include input validation — unexpected inputs may cause errors.
+---
 
 ## License
 
-This project is for learning purposes only. No license is applied.
+This project is for educational purposes only. No license is applied.
+
+---
