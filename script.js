@@ -47,6 +47,10 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 {
     let resultString = null;
 
+    if (document.body.contains(finalText)){
+        finalText.remove()
+    }
+
 
     if (
         (playerChoice == "rock" && computerChoice == "scissors") ||
@@ -55,7 +59,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 
     ) 
     {
-        finalText.remove()
+        
         resultString = "<h2>Round " + (roundNumber+1) + ": You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h2>";
         scoreText.innerHTML = resultString;
         humanScore++;
@@ -69,7 +73,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
         
     ) 
     {
-        finalText.remove();
+        
         resultString = "<h2>Round " + (roundNumber+1) + ": I win! " + computerChoice.charAt(0).toUpperCase() + computerChoice.substring(1) + " beats " + playerChoice + "!</h2>";
         scoreText.innerHTML = resultString;
         computerScore++;
@@ -77,7 +81,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
         scoreText.appendChild(currentScoreText);
     }
     else {
-        finalText.remove();
+        
         resultString = "<h2>Round " + (roundNumber+1) +": Tie! We both chose " + playerChoice + "</h2>";
         scoreText.innerHTML = resultString;
         currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
