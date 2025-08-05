@@ -1,0 +1,38 @@
+
+
+.selectionContainer__rockSelection{
+    background-image: url(./rock.svg);
+    height: 16rem;
+    width: 16rem;
+
+}
+.selectionContainer__rockSelection--hover:hover{
+    background-image: url(./rock_glow.svg);
+}
+
+
+.selectionContainer__paperSelection{
+    background-image: url(./paper.svg);
+    height: 16rem;
+    width: 16rem;
+}
+.selectionContainer__paperSelection--hover:hover{
+    background-image: url(./paper_glow.svg); 
+}
+
+.selectionContainer__scissorsSelection{
+    background-image: url(./scissors.svg);
+    height: 16rem;
+    width: 16rem;
+}
+.selectionContainer__scissorsSelection--hover:hover{
+    background-image: url(./scissors_glow.svg);
+}
+
+
+.selectionContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
