@@ -75,7 +75,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 
     ) 
     {
-        resultString = "<h1>You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h1>";
+        resultString = "<h1>Round " + (roundNumber+1) + ": You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h1>";
         scoreText.innerHTML = resultString;
         humanScore++;
         currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
@@ -88,7 +88,7 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
         
     ) 
     {
-        resultString = "<h1>I win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h1>";
+        resultString = "<h1>Round " + (roundNumber+1) + ": I win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h1>";
         scoreText.innerHTML = resultString;
         computerScore++;
         currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
@@ -96,11 +96,13 @@ function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
     }
     else {
         
-        resultString = "<h1>Tie! We both chose " + playerChoice + "</h1>";
+        resultString = "<h1>Round " + (roundNumber+1) +": Tie! We both chose " + playerChoice + "</h1>";
         scoreText.innerHTML = resultString;
         currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
         scoreText.appendChild(currentScoreText);
     }
+
+    roundNumber++;
 
     
 }
