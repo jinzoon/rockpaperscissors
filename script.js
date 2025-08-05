@@ -25,25 +25,32 @@ let playerChoice = null;
 const rockButton = document.querySelector(".selectionContainer__rockSelection");
 const paperButton = document.querySelector(".selectionContainer__paperSelection");
 const scissorButton = document.querySelector(".selectionContainer__scissorsSelection");
+const scoreText = document.querySelector(".scoreText");
+const currentScoreText = document.createElement("p");
+
+let roundNumber = 0;
 
 rockButton.addEventListener("click", () => {
  //alert("Rock World");
  playerChoice = "rock";
- playRound(playerChoice,getComputerChoice())
+ playRound(playerChoice,getComputerChoice(),scoreText,currentScoreText)
 });
 
 
 paperButton.addEventListener("click", () => {
  //alert("Paper World");
  playerChoice = "paper";
- playRound(playerChoice,getComputerChoice())
+ playRound(playerChoice,getComputerChoice(),scoreText,currentScoreText)
 });
 
 scissorButton.addEventListener("click", () => {
  //alert("Scissor World");
  playerChoice = "scissors";
- playRound(playerChoice,getComputerChoice())
+ playRound(playerChoice,getComputerChoice(),scoreText,currentScoreText)
 });
+
+
+
 
 
 //playGame();
@@ -58,8 +65,9 @@ else {
 }
 
 //plays one round of the game
-function playRound (playerChoice,computerChoice )
+function playRound (playerChoice,computerChoice, scoreText, currentScoreText)
 {
+    let resultString = null;
     if (
         (playerChoice == "rock" && computerChoice == "scissors") ||
         (playerChoice == "paper" && computerChoice == "rock") ||
@@ -67,8 +75,11 @@ function playRound (playerChoice,computerChoice )
 
     ) 
     {
-        console.log("You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!")
+        resultString = "<h1>You win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h1>";
+        scoreText.innerHTML = resultString;
         humanScore++;
+        currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
+        scoreText.appendChild(currentScoreText);
     }
     else if  (
         (computerChoice == "rock" &&  playerChoice == "scissors") ||
@@ -77,13 +88,24 @@ function playRound (playerChoice,computerChoice )
         
     ) 
     {
-        console.log("I win! " + computerChoice.charAt(0).toUpperCase() + computerChoice.substring(1)  + " beats " + playerChoice + "!")
+        resultString = "<h1>I win! " + playerChoice.charAt(0).toUpperCase() + playerChoice.substring(1) + " beats " + computerChoice + "!</h1>";
+        scoreText.innerHTML = resultString;
         computerScore++;
+        currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
+        scoreText.appendChild(currentScoreText);
     }
     else {
-        console.log("Tie! We both chose " + playerChoice )
+        
+        resultString = "<h1>Tie! We both chose " + playerChoice + "</h1>";
+        scoreText.innerHTML = resultString;
+        currentScoreText.textContent = "Your score is "+ humanScore + " My score is " + computerScore;
+        scoreText.appendChild(currentScoreText);
     }
+
+    
 }
+
+
 
 
 //function playGame() {
